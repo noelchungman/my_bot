@@ -15,6 +15,7 @@ source install/setup.bash
 
 5.1 To run the file
 ros2 launch my_bot rsp.launch.py use_sim_time:=true
+ros2 launch my_bot rsp_sim.launch.py
 (Previous:ros2 launch my_bot rsp.launch.py)
 
 5.2 To run gazebo
