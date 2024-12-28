@@ -7,10 +7,20 @@ A. After first time run project, each time development:
 source /opt/ros/humble/setup.bash
 3. Navigate to your workspace:
 cd /root/ros2_ws
+
 4. Source your workspace:
 source install/setup.bash
+
 5. Run the launch file
-ros2 launch my_bot rsp.launch.py
+
+5.1 To run the file
+ros2 launch my_bot rsp.launch.py use_sim_time:=true
+(Previous:ros2 launch my_bot rsp.launch.py)
+
+5.2 To run gazebo
+ros2 launch gazebo_ros gazebo.launch.py
+ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity my_bot
+
 
 A.1 Run The left wheel right wheel
 ros2 run joint_state_publisher_gui joint_state_publisher_gui
@@ -121,6 +131,12 @@ colcon build --merge-install
 
 B. After complete robot_core.xacro, save rviz to the workspace
 File > Save config as> root > ros2_ws > src > my_bot > config > File Nmae: view_bot.rviz
+
+-- Install Gazebo
+sudo apt install ros-humble-gazebo-ros-pkgs   (as I use ubuntu cannnot use ros-foxy-gazebo-ros-pkgs)
+sudo apt install ros-humble-gazebo-ros
+
+exampl: Open seesaw example: gazebo /usr/share/gazebo-11/worlds/seesaw.world
 === /Install rvis2 =================================================================
 === Box Design =====================================================================
 300mm*300mm*150mm
@@ -131,4 +147,8 @@ chassie_joint = just behind the center of the two drive wheels in the bottom => 
 
 original center of the chessie, x = 0.3/2 = 0.15, z = 0.15/2 = 0.075
 to make the visual left in the back in the bottom xyz=0.15 0 0.075
+
+x=froward
+y=left
+z=up
 === /Box Design ====================================================================
